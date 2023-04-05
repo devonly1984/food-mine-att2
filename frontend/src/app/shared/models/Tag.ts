@@ -1,4 +1,4 @@
-export class Tags {
+export class Tag {
 
   name!:string;
   count!: Number;

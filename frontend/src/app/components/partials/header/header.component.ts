@@ -16,6 +16,7 @@ constructor(cartService: CartService,private userService: UserService){
     this.cartQuantity = cart.totalCount;
   })
   userService.userObservable.subscribe((newUser) => {
+
     this.user = newUser;
   });
 
@@ -24,6 +25,7 @@ logout() {
   this.userService.logout();
 }
 get isAuth() {
+
   return this.user.token;
 }
 }

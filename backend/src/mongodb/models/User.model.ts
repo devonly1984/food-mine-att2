@@ -1,16 +1,21 @@
 import {model,Schema} from 'mongoose';
+
 export interface User {
-    email: string;
+    id: string;
+    email:string;
     password: string;
-
-
-
-
+    name: string;
+    address:string;
+    isAdmin: boolean;
 }
 
 const UserSchema = new Schema<User>({
-    email: {type:String,required: true},
-    password: {type:String,required: true}
+    
+    email: {type:String,required: true,unique: true},
+    password: {type:String,required: true},
+    name: {type:String,required: true},
+    address: {type: String,required: true},
+    isAdmin: {type: Boolean,required: true}
 },
 {
     toJSON: {
@@ -23,4 +28,4 @@ const UserSchema = new Schema<User>({
 })
 
 
-export const UserModel = model('user',UserSchema);
+export const UserModel = model<User>('users',UserSchema);

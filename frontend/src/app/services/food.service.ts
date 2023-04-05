@@ -4,7 +4,7 @@ import { Food } from '../shared/models/Food';
 import { Observable } from 'rxjs';
 
 import { FOODS_BY_SEARCH_URL, FOODS_URL,FOODS_TAGS_URL } from '../shared/constants/url';
-import { Tags } from '../shared/models/Tags';
+import { Tag } from '../shared/models/Tag';
 import { FOODS_BY_TAG_URL } from '../shared/constants/url';
 import { FOOD_BY_ID_URL } from '../shared/constants/url';
 
@@ -20,13 +20,13 @@ export class FoodService {
   getAllFoodsbySearchTerm(searchTerm:string): Observable<Food[]> {
     return this.http.get<Food[]>(FOODS_BY_SEARCH_URL+ searchTerm);
   }
-  getAllTags():Observable<Tags[]>{
-  return this.http.get<Tags[]>(FOODS_TAGS_URL);
+  getAllTags():Observable<Tag[]>{
+  return this.http.get<Tag[]>(FOODS_TAGS_URL);
   }
   getAllTagsByTagName(tag:String): Observable<Food[]> {
     return tag === 'All' ?
     this.getallFoods() :
-    this.http.get<Food[]>(FOODS_BY_TAG_URL +tag);
+    this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);
 
   }
   getFoodDetails(id: string): Observable<Food> {

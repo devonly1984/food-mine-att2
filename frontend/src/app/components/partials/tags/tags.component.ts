@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FoodService } from 'src/app/services/food.service';
-import { Tags } from 'src/app/shared/models/Tags';
+import { Tag } from 'src/app/shared/models/Tag';
 
 @Component({
   selector: 'app-tags',
@@ -8,7 +8,7 @@ import { Tags } from 'src/app/shared/models/Tags';
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent {
-  tags?: Tags[];
+  tags?: Tag[];
   constructor(foodService: FoodService) {
     foodService.getAllTags().subscribe(serverTags=> {
       this.tags = serverTags;
