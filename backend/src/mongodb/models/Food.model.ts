@@ -12,7 +12,7 @@ export interface Food {
   cookTime: string;
 }
 
-const foodSchema = new Schema<Food>(
+export const foodSchema = new Schema<Food>(
   {
     name: { type: String, required: true },
     price: { type: Number, required: true },

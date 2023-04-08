@@ -12,9 +12,10 @@ export const loginUser = asyncHandler(async (req, res) => {
     res.status(400).send("User name or password is incorrect");
   }
 });
-const generateTokenResponse = (user: User) => {
+const generateTokenResponse = (user: any) => {
   const token = jwt.sign(
     {
+      id: user.id,
       email: user.email,
       isAdmin: user.isAdmin,
     },
@@ -53,5 +54,6 @@ export const registerUser = asyncHandler(async(req,res)=> {
     isAdmin: false
   }
   const dbUser = await UserModel.create(newUser);
+  console.log(dbUser,"User Registered Successfully");
   res.send(generateTokenResponse(dbUser));
 })

@@ -13,13 +13,12 @@ export class HomeComponent implements OnInit {
 foods: Food[] = [];
 constructor(private foodService: FoodService,activatedRoute: ActivatedRoute) {
   let foodsObservable: Observable<Food[]>;
-  activatedRoute.params.subscribe(params=>{
+  activatedRoute.params.subscribe((params)=>{
     if (params.seachTerm) {
      foodsObservable =  this.foodService.getAllFoodsbySearchTerm(params.seachTerm)
     }
     else if (params.tag){
         foodsObservable = this.foodService.getAllTagsByTagName(params.tag)
-
     }
     else{
     foodsObservable = this.foodService.getallFoods()
