@@ -30,6 +30,6 @@ export class FoodService {
 
   }
   getFoodDetails(id: string): Observable<Food> {
-    return this.http.get<Food>(FOOD_BY_ID_URL);
+    return this.http.get<Food>(FOOD_BY_ID_URL +id);
   }
 }

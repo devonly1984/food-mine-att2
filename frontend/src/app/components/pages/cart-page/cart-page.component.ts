@@ -13,6 +13,7 @@ cart!:Cart;
 constructor(private cartService: CartService) {
   this.cartService.getCartObservable().subscribe(cart => {
     this.cart = cart;
+    console.log(cart);
   })
 }
 removeFromCart(cartItem:CartItem){
